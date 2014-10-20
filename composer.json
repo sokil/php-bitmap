@@ -1,0 +1,16 @@
+{
+    "name": "sokil/php-bitmap",
+    "description": "Working with bits",
+    "authors": [
+        {
+            "name": "Dmytro Sokil",
+            "email": "dmytro.sokil@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Sokil\\": "src"
+        }
+    }
+}
