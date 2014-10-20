@@ -13,6 +13,6 @@ class Bitmap
     
     public function isSet($index)
     {
-        return $this->_bitmap & (1 << $index);
+        return 0 !== $this->_bitmap & (1 << $index);
     }
 }
