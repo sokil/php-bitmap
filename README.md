@@ -84,7 +84,7 @@ class PhpError extends \Sokil\Bitmap
      * Hide warnings
      * Set second bit, which represents E_WARNING, to "0"
      */
-    public function showWarnings()
+    public function hideWarnings()
     {
         $this->unsetBit(1);
         return $this;
