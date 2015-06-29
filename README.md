@@ -114,7 +114,7 @@ $error->showErrors()->showWarnings();
 error_reporting($error->toInt());
 
 // check if warnings shown
-var_dump($error->isWarningsShown));
+var_dump($error->isWarningsShown());
 
 // value may be set by mask
 // E_USER_ERROR | E_USER_WARNING is 256 + 512;
