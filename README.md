@@ -55,7 +55,7 @@ class PhpError extends \Sokil\Bitmap
      * Hide errors
      * Set first bit, which represents E_ERROR, to "0"
      */
-    public function showErrors()
+    public function hideErrors()
     {
         $this->unsetBit(0);
         return $this;
