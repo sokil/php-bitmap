@@ -9,7 +9,19 @@ It is useful when required compact way to represent combination
 of values and simple manipulations with them. One byte can 
 represent eight independent values.
 
-lets see example. Errors in PHP represents as constants:
+### Installation
+
+```
+{
+    "require": {
+        "sokil/php-bitmap": "1.0"
+    }
+}
+```
+
+### Useage
+
+Lets see example. Errors in PHP represents as constants:
 
 ```
 E_ERROR = 1 (0);
