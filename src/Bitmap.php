@@ -1,27 +1,55 @@
 <?php
 
+/**
+ * (c) Dmytro Sokil <dmytro.sokil@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Sokil;
 
+/**
+ * Instance of binary map
+ */
 class Bitmap
 {
-    private $_bitmap;
-    
+    /**
+     * @var int
+     */
+    private $bitmap;
+
+    /**
+     * @param int $bitmap
+     */
     public function __construct($bitmap = 0)
     {
-        $this->_bitmap = (int) $bitmap;
+        $this->bitmap = (int)$bitmap;
     }
-    
+
+    /**
+     * @param int $index
+     * @return bool
+     */
     public function isBitSet($index)
     {
-        return (bool) ($this->_bitmap & (1 << $index));
+        return (bool) ($this->bitmap & (1 << $index));
     }
-    
+
+    /**
+     * @param int $index
+     * @return $this
+     */
     public function setBit($index)
     {
-        $this->_bitmap = $this->_bitmap | (1 << $index);
+        $this->bitmap = $this->bitmap | (1 << $index);
         return $this;
     }
-    
+
+    /**
+     * @param [] $indexList
+     * @return $this
+     */
     public function setBits(array $indexList)
     {
         $mask = 0;
@@ -33,19 +61,31 @@ class Bitmap
         
         return $this;
     }
-    
+
+    /**
+     * @param int $mask
+     * @return $this
+     */
     public function setBitsByMask($mask)
     {
-        $this->_bitmap = $this->_bitmap | $mask;
+        $this->bitmap = $this->bitmap | $mask;
         return $this;
     }
-    
+
+    /**
+     * @param int $index
+     * @return $this
+     */
     public function unsetBit($index)
     {
-        $this->_bitmap = $this->_bitmap & ~(1 << $index);
+        $this->bitmap = $this->bitmap & ~(1 << $index);
         return $this;
     }
-    
+
+    /**
+     * @param int[] $indexList
+     * @return $this
+     */
     public function unsetBits(array $indexList)
     {
         $mask = 0;
@@ -57,26 +97,39 @@ class Bitmap
         
         return $this;
     }
-    
+
+    /**
+     * @param int $mask
+     * @return $this
+     */
     public function unsetBitsByMask($mask)
     {
-        $this->_bitmap = $this->_bitmap & ~$mask;
+        $this->bitmap = $this->bitmap & ~$mask;
         return $this;
     }
-    
+
+    /**
+     * @return $this
+     */
     public function invert()
     {
-        $this->_bitmap = ~$this->_bitmap;
+        $this->bitmap = ~$this->bitmap;
         return $this;
     }
-    
+
+    /**
+     * @return int
+     */
     public function getInt()
     {
-        return $this->_bitmap;
+        return $this->bitmap;
     }
-    
+
+    /**
+     * @return string
+     */
     public function getBinary()
     {
-        return decbin($this->_bitmap);
+        return decbin($this->bitmap);
     }
 }

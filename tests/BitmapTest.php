@@ -2,7 +2,7 @@
 
 namespace Sokil;
 
-class BitmaskTest extends \PHPUnit_Framework_Testcase
+class BitmapTest extends \PHPUnit_Framework_TestCase
 {
     public function testIsBitSet()
     {
