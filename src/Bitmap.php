@@ -33,12 +33,30 @@ class Bitmap
      */
     public function isBitSet($index)
     {
-        return (bool) ($this->bitmap & (1 << $index));
+        return (bool)($this->bitmap & (1 << $index));
+    }
+
+    /**
+     * @param int $mask
+     * @return bool
+     */
+    public function isAnyMaskBitSet($mask)
+    {
+        return ($this->bitmap & $mask) > 0;
+    }
+
+    /**
+     * @param int $mask
+     * @return bool
+     */
+    public function isAllMaskBitsSet($mask)
+    {
+        return $mask === ($this->bitmap & $mask);
     }
 
     /**
      * @param int $index
-     * @return $this
+     * @return Bitmap
      */
     public function setBit($index)
     {
@@ -47,8 +65,8 @@ class Bitmap
     }
 
     /**
-     * @param [] $indexList
-     * @return $this
+     * @param int[] $indexList
+     * @return Bitmap
      */
     public function setBits(array $indexList)
     {
@@ -64,7 +82,7 @@ class Bitmap
 
     /**
      * @param int $mask
-     * @return $this
+     * @return Bitmap
      */
     public function setBitsByMask($mask)
     {
@@ -74,7 +92,7 @@ class Bitmap
 
     /**
      * @param int $index
-     * @return $this
+     * @return Bitmap
      */
     public function unsetBit($index)
     {
@@ -84,7 +102,7 @@ class Bitmap
 
     /**
      * @param int[] $indexList
-     * @return $this
+     * @return Bitmap
      */
     public function unsetBits(array $indexList)
     {
@@ -100,7 +118,7 @@ class Bitmap
 
     /**
      * @param int $mask
-     * @return $this
+     * @return Bitmap
      */
     public function unsetBitsByMask($mask)
     {
@@ -109,7 +127,7 @@ class Bitmap
     }
 
     /**
-     * @return $this
+     * @return Bitmap
      */
     public function invert()
     {
@@ -131,5 +149,25 @@ class Bitmap
     public function getBinary()
     {
         return decbin($this->bitmap);
+    }
+
+    /**
+     * @param Bitmap $bitmap
+     * @return bool
+     */
+    public function equals(Bitmap $bitmap)
+    {
+        return $this->bitmap === $bitmap->getInt();
+    }
+
+    /**
+     * Add two bitmaps.
+     *
+     * @param Bitmap $bitmap
+     * @return Bitmap
+     */
+    public function add(Bitmap $bitmap)
+    {
+        return new Bitmap($this->bitmap + $bitmap->getInt());
     }
 }

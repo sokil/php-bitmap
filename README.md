@@ -133,5 +133,5 @@ var_dump($error->isWarningsShown());
 
 // value may be set by mask
 // E_USER_ERROR | E_USER_WARNING is 256 + 512;
-$error->setBitsByMask(E_USER_ERROR + E_USER_WARNING);
+$error->setBitsByMask(E_USER_ERROR | E_USER_WARNING);
 ```
