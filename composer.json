@@ -10,16 +10,23 @@
     ],
     "keywords": ["bitmap"],
     "license": "MIT",
-    "require": {},
+    "require": {
+        "php": ">=5.3"
+    },
     "require-dev": {
-        "phpunit/phpunit": ">=3.7.38 <6.0"
+        "phpunit/phpunit": "^4.8 || ^6.5"
     },
     "autoload": {
         "psr-4": {
-            "Sokil\\": ["src/", "tests/"]
+            "Sokil\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sokil\\": "tests/"
         }
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit -c ./tests/phpunit.xml ./tests"
+        "test": "./vendor/bin/phpunit -c ./tests/phpunit.xml"
     }
 }

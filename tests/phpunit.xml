@@ -8,12 +8,12 @@
     >
     <testsuites>
         <testsuite name="AllTests">
-            <directory>.</directory>
+            <directory suffix="Test.php">./</directory>
         </testsuite>
     </testsuites>
     <filter>
-        <blacklist>
-            <file>../src/Exception.php</file>
-        </blacklist>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../src</directory>
+        </whitelist>
     </filter>
 </phpunit>

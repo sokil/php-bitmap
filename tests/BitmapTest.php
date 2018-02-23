@@ -2,7 +2,9 @@
 
 namespace Sokil;
 
-class BitmapTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class BitmapTest extends TestCase
 {
     public function testIsAnyBitSetByMask()
     {
