@@ -1,6 +1,6 @@
 {
     "name": "sokil/php-bitmap",
-    "description": "Working with bits",
+    "description": "Bitmap representation with bitwise operations",
     "type": "library",
     "authors": [
         {
