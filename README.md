@@ -18,7 +18,7 @@ represent eight independent values.
 ```
 {
     "require": {
-        "sokil/php-bitmap": "1.0"
+        "sokil/php-bitmap": "2.0"
     }
 }
 ```
