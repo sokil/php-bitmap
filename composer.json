@@ -11,7 +11,7 @@
     "keywords": ["bitmap"],
     "license": "MIT",
     "require": {
-        "php": ">=5.3"
+        "php": ">=7.1"
     },
     "require-dev": {
         "phpunit/phpunit": ">=7.5.20"
