@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * (c) Dmytro Sokil <dmytro.sokil@gmail.com>
  *
@@ -22,16 +24,16 @@ class Bitmap
     /**
      * @param int $bitmap
      */
-    public function __construct($bitmap = 0)
+    public function __construct(int $bitmap = 0)
     {
-        $this->bitmap = (int)$bitmap;
+        $this->bitmap = $bitmap;
     }
 
     /**
      * @param int $index
      * @return bool
      */
-    public function isBitSet($index)
+    public function isBitSet(int $index): bool
     {
         return (bool)($this->bitmap & (1 << $index));
     }
@@ -40,7 +42,7 @@ class Bitmap
      * @param int $mask
      * @return bool
      */
-    public function isAnyMaskBitSet($mask)
+    public function isAnyMaskBitSet(int $mask): bool
     {
         return ($this->bitmap & $mask) > 0;
     }
@@ -49,7 +51,7 @@ class Bitmap
      * @param int $mask
      * @return bool
      */
-    public function isAllMaskBitsSet($mask)
+    public function isAllMaskBitsSet(int $mask): bool
     {
         return $mask === ($this->bitmap & $mask);
     }
@@ -58,7 +60,7 @@ class Bitmap
      * @param int $index
      * @return Bitmap
      */
-    public function setBit($index)
+    public function setBit(int $index): Bitmap
     {
         $this->bitmap = $this->bitmap | (1 << $index);
         return $this;
@@ -68,7 +70,7 @@ class Bitmap
      * @param int[] $indexList
      * @return Bitmap
      */
-    public function setBits(array $indexList)
+    public function setBits(array $indexList): Bitmap
     {
         $mask = 0;
         foreach($indexList as $index) {
@@ -84,7 +86,7 @@ class Bitmap
      * @param int $mask
      * @return Bitmap
      */
-    public function setBitsByMask($mask)
+    public function setBitsByMask(int $mask): Bitmap
     {
         $this->bitmap = $this->bitmap | $mask;
         return $this;
@@ -94,7 +96,7 @@ class Bitmap
      * @param int $index
      * @return Bitmap
      */
-    public function unsetBit($index)
+    public function unsetBit(int $index): Bitmap
     {
         $this->bitmap = $this->bitmap & ~(1 << $index);
         return $this;
@@ -104,7 +106,7 @@ class Bitmap
      * @param int[] $indexList
      * @return Bitmap
      */
-    public function unsetBits(array $indexList)
+    public function unsetBits(array $indexList): Bitmap
     {
         $mask = 0;
         foreach($indexList as $index) {
@@ -120,7 +122,7 @@ class Bitmap
      * @param int $mask
      * @return Bitmap
      */
-    public function unsetBitsByMask($mask)
+    public function unsetBitsByMask(int $mask): Bitmap
     {
         $this->bitmap = $this->bitmap & ~$mask;
         return $this;
@@ -129,7 +131,7 @@ class Bitmap
     /**
      * @return Bitmap
      */
-    public function invert()
+    public function invert(): Bitmap
     {
         $this->bitmap = ~$this->bitmap;
         return $this;
@@ -138,7 +140,7 @@ class Bitmap
     /**
      * @return int
      */
-    public function getInt()
+    public function getInt(): int
     {
         return $this->bitmap;
     }
@@ -146,16 +148,17 @@ class Bitmap
     /**
      * @return string
      */
-    public function getBinary()
+    public function getBinary(): string
     {
         return decbin($this->bitmap);
     }
 
     /**
      * @param Bitmap $bitmap
+     *
      * @return bool
      */
-    public function equals(Bitmap $bitmap)
+    public function equals(Bitmap $bitmap): bool
     {
         return $this->bitmap === $bitmap->getInt();
     }
@@ -164,9 +167,10 @@ class Bitmap
      * Add two bitmaps.
      *
      * @param Bitmap $bitmap
+     * 
      * @return Bitmap
      */
-    public function add(Bitmap $bitmap)
+    public function add(Bitmap $bitmap): Bitmap
     {
         return new Bitmap($this->bitmap + $bitmap->getInt());
     }
