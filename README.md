@@ -3,7 +3,7 @@ php-bitmap
 
 [![Total Downloads](http://img.shields.io/packagist/dt/sokil/php-bitmap.svg?1)](https://packagist.org/packages/sokil/php-bitmap/stats)
 [![Daily Downloads](https://poser.pugx.org/sokil/php-bitmap/d/daily)](https://packagist.org/packages/sokil/php-bitmap/stats)
-[![Build Status](https://travis-ci.org/sokil/php-bitmap.svg?branch=master)](https://travis-ci.org/sokil/php-bitmap)
+[![Build](https://github.com/sokil/php-bitmap/workflows/Test/badge.svg?branch=master)](https://github.com/sokil/php-bitmap/actions?query=workflow%3ATest)
 
 Bitmap, also called bit array is a data structure that 
 compactly store set of values as bits of integer.
