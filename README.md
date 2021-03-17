@@ -16,11 +16,7 @@ represent eight independent values.
 ### Installation
 
 ```
-{
-    "require": {
-        "sokil/php-bitmap": "2.0"
-    }
-}
+composer require sokil/php-bitmap
 ```
 
 ### Useage
